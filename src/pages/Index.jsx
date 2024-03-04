@@ -1,20 +1,17 @@
+import React, { useState, useEffect } from "react";
+import { Box, Button, Container, FormControl, FormLabel, Input, List, ListItem, Text, useToast, VStack } from "@chakra-ui/react";
+import { FaPlus } from "react-icons/fa";
+
+const apiBaseUrl = "https://backengine-zq2g.fly.dev";
+
 const Index = () => {
   const [todos, setTodos] = useState([]);
   const [newTodoTitle, setNewTodoTitle] = useState("");
   const [newTodoContent, setNewTodoContent] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const toast = useToast();
-
-  // Misplaced function definitions have been removed.
-
-  useEffect(() => {
-    if (isLoggedIn && token) {
-      fetchTodos();
-    }
-  }, [isLoggedIn, token]);
 
   const fetchTodos = async () => {
     try {
