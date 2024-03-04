@@ -22,7 +22,7 @@ const Index = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        setTodos(data);
+        setTodos(data.todos);
       } else {
         throw new Error("Failed to fetch todos");
       }
