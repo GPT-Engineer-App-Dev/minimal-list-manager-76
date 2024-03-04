@@ -47,8 +47,7 @@ const Index = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.access_token);
-        const token = localStorage.getItem("token");
-        setIsLoggedIn(!!token);
+        setIsLoggedIn(true);
         fetchTodos();
       } else {
         throw new Error("Invalid login credentials");
@@ -93,7 +92,7 @@ const Index = () => {
   };
 
   useEffect(() => {
-    if (isLoggedIn && localStorage.getItem("token")) {
+    if (isLoggedIn) {
       fetchTodos();
     }
   }, [isLoggedIn]);
