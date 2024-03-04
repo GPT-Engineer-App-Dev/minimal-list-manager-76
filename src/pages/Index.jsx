@@ -15,7 +15,11 @@ const Index = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch(`${apiBaseUrl}/todos`);
+      const response = await fetch(`${apiBaseUrl}/todos`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       if (response.ok) {
         const data = await response.json();
         setTodos(data);
