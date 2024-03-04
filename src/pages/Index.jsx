@@ -46,7 +46,7 @@ const Index = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("token", data.access_token);
+        localStorage.setItem("token", data.accessToken);
         setIsLoggedIn(true);
         fetchTodos();
       } else {
